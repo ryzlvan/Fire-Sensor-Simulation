@@ -21,5 +21,6 @@ Instructions:
 
 This github link contains the following: <br>
 - The sketched file named "fire_sensor_simulation.ino"
-- Image / Screenshot of Breadboard diagram using Tinkercad. We use Temperature Sensor [TMP36] as a substiture for NTC Thermistor as a placeholder (No Thermistor in Tinkercad)
+- Image / Screenshot of Breadboard diagram using Tinkercad. We use Temperature Sensor [TMP36] as a substiture for NTC Thermistor as a placeholder (No Thermistor in Tinkercad) 
+- Breadboard Diragram Link: https://www.tinkercad.com/things/hjOXWO2g0xD-laboratory-activity-3-working-with-sensors?sharecode=MmutdbMNaYXJhuH0NkZEU3QpHZ7GzDYaf5hNVpsrJxk
 - Individual grades of the members
