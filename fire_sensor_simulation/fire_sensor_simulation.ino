@@ -1,7 +1,6 @@
 #define thermistorPin A0
 #define photoresistorPin A2
 #define ledPin 12
-#define buzzerPin 11
 
 const int tempThreshold = 50;
 const int brightThreshold = 220;
@@ -9,9 +8,13 @@ const int brightThreshold = 220;
 const float resistance = 10.0;
 const float beta = 3950.0; 
 
+bool isAlarmActive = false;
+
 // Function to read brightness
 int readBright() {
-  return analogRead(photoresistorPin);
+  int analogLight = analogRead(photoresistorPin); 
+  int brightlight = map(analogLight,0,1023,0,255);
+  return brightlight;
 }
 
 // Function to read temperature in Celsius
@@ -23,7 +26,6 @@ float readTempC() {
 
 void setup() {
   pinMode(ledPin, OUTPUT);
-  pinMode(buzzerPin, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -34,19 +36,19 @@ void loop() {
   // Temperature and Brightness Check
   Serial.print("Temperature: ");
   Serial.print(currentTemp);
-  Serial.print(" Celsius | Brightness: ");
-  Serial.print(currentBright);
-
+  Serial.print(" | Brightness: ");
+  Serial.println(currentBright);
+  delay(1000);
   
   if(currentTemp >= tempThreshold && currentBright >= brightThreshold) {
     digitalWrite(ledPin, HIGH);
-    tone(buzzerPin, 4000);
+    tone(ledPin, 4000);
     delay(100);
     digitalWrite(ledPin, LOW);
-    noTone(buzzerPin);
+    noTone(ledPin);
     delay(100);
   } else {
     digitalWrite(ledPin, LOW);  
-    noTone(buzzerPin);
+    noTone(ledPin);
   }
 }
